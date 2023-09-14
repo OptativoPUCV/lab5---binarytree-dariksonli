@@ -36,9 +36,6 @@ TreeNode * createTreeNode(void* key, void * value) {
     return new;
 }
 
-/*1.- Implemente la función *createTreeMap* en el archivo treemap.c. Esta función recibe la función de comparación de claves y crea un mapa (TreeMap) inicializando sus variables. 
-El siguiente código muestra como inicializar la función de comparación. Reserve memoria, inicialice el resto de variables y retorne el mapa.*/
-
 TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) 
 {
   TreeMap * new = (TreeMap *) malloc(sizeof(TreeMap));
@@ -75,25 +72,20 @@ void eraseTreeMap(TreeMap * tree, void* key){
 
 Pair * searchTreeMap(TreeMap * tree, void* key) 
 {
-  if(tree == NULL || tree->root == NULL) return NULL;
+  if(tree == NULL) return NULL;
 
   TreeNode * aux = tree->root;
-  while(1)
+  while(aux != NULL)
     {
-      if(aux->pair->key == key){
-        return aux->pair->key;
-      }else{
-        if(aux->pair->key > key){
-          aux = aux->right;
-        }else{
-          aux = aux->left;
-        }
+      if(key == aux->pair->key)
+            return aux->pair->value;
+        else if(key < aux->pair->key)
+            aux = aux->left;
+        else
+            aux = aux->right;
       }
-      
-    }
-  return NULL;
+ return NULL; 
 }
-
 
 Pair * upperBound(TreeMap * tree, void* key) {
     return NULL;
