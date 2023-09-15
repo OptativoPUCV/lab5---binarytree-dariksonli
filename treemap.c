@@ -94,10 +94,6 @@ TreeNode * minimum(TreeNode * x)
 void removeNode(TreeMap * tree, TreeNode* node)
 {
   //buscar si esta
-  Pair * aux = searchTreeMap((tree), node->pair->key);
-  if(aux == NULL) return;
-
-  TreeNode * nodoActual = tree->root;
   
   //sin hijos
   
