@@ -182,5 +182,7 @@ Pair * firstTreeMap(TreeMap * tree) {
 
 Pair * nextTreeMap(TreeMap * tree) {
   if(tree== NULL || tree->root == NULL) return NULL;
-  return tree->current->parent->pair;
+  Pair * parNext = tree->current->parent->pair;
+  tree->current = tree->current->parent;
+  return parNext;
 }
