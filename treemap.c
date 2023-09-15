@@ -104,6 +104,29 @@ void removeNode(TreeMap * tree, TreeNode* node)
     node->parent->left = node->parent->right = NULL;
     return;
   }
+  //1 hijo
+  if(node->left == NULL && node->right != NULL){
+    //tengo q saber donde esta el parent para asi ajustar los nodos
+    if(node->parent->left->pair->key == node->pair->key){
+      node->parent->left = node->right;
+      node->right = NULL;
+      return;
+    }else if(node->parent->right->pair->key == node->pair->key){
+      node->parent->right = node->right;
+      node->right =NULL;
+      return;
+    }
+  }else if(node->left != NULL && node->right == NULL){
+    if(node->parent->left->pair->key == node->pair->key){
+      node->parent->left = node->left;
+      node->left = NULL;
+      return;
+    }else if(node->parent->right->pair->key == node->pair->key){
+      node->parent->right = node->left;
+      node->left =NULL;
+      return;
+    }
+  }
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
