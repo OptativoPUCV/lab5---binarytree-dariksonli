@@ -62,10 +62,6 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
   TreeNode* nodoActual = tree->root;
   while(1)
     {
-      if(tree->lower_than(key, nodoActual->pair->key) == 1)
-          nodoActual = nodoActual->left;
-      else nodoActual = nodoActual->right;
-
       if(nodoActual->left == NULL) {
         nodoActual->left->pair->key = nodo->pair->key;
         nodoActual->left->pair->value = nodo->pair->value;
@@ -77,6 +73,9 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
         nodoActual->right = nodo;
         return;
       }
+      if(tree->lower_than(nodo->pair->key, nodoActual->pair->key) == 1)
+          nodoActual = nodoActual->left;
+      else nodoActual = nodoActual->right;
     }
   
   return;
