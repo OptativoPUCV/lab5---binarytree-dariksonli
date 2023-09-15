@@ -167,7 +167,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key)
             tree->current = tree->current->left;
       else tree->current = tree->current->right;
     }
- return tree->current->parent->pair; 
+ return NULL; 
 }
 
 Pair * upperBound(TreeMap * tree, void* key)
@@ -188,7 +188,7 @@ Pair * upperBound(TreeMap * tree, void* key)
         tree->current = tree->current->right;
           }
     }
-  return NULL;
+  return tree->current->parent->pair;
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
