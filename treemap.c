@@ -109,7 +109,7 @@ void removeNode(TreeMap * tree, TreeNode* node)
     //tengo q saber donde esta el parent para asi ajustar los nodos
     if(node->parent->left->pair->key == node->pair->key){
       node->parent->left = node->right;
-      node->right = NULL;
+      node->right->parent = node->parent;
       return;
     }else if(node->parent->right->pair->key == node->pair->key){
       node->parent->right = node->right;
