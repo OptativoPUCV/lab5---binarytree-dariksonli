@@ -123,3 +123,18 @@ Fri 15 Sep 2023 03:39:24 AM UTC:
  tests:  14|5
 total_score: 15/70
 945db54
+Fri 15 Sep 2023 04:14:22 AM UTC: 
+ treemap.c | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:61:13: error: variable ‘parent’ set but not used [-Werror=unused-but-set-variable]
+   61 |   TreeNode* parent = NULL;
+      |             ^~~~~~
+treemap.c: In function ‘removeNode’:
+treemap.c:103:14: error: unused variable ‘nodoActual’ [-Werror=unused-variable]
+  103 |   TreeNode * nodoActual = tree->root;
+      |              ^~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+ce458aa
