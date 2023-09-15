@@ -153,3 +153,14 @@ treemap.c:101:14: error: unused variable ‘nodoActual’ [-Werror=unused-variab
 cc1: all warnings being treated as errors
 Compilation failed
 0f3bed0
+Fri 15 Sep 2023 04:15:58 AM UTC: 
+ treemap.c | 1 -
+ 1 file changed, 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:100:14: error: unused variable ‘nodoActual’ [-Werror=unused-variable]
+  100 |   TreeNode * nodoActual = tree->root;
+      |              ^~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+01d6f64

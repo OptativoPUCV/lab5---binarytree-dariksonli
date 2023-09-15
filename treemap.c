@@ -58,7 +58,6 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
   }
   
   Pair * aux = searchTreeMap(tree,key);
-  TreeNode* parent = NULL;
   if(aux != NULL) return;
   
   TreeNode* nodoActual = tree->root;
