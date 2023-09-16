@@ -206,23 +206,23 @@ Pair * nextTreeMap(TreeMap * tree) {
     
   }
   
-  if(aux->right != NULL){
-    while(aux->parent != NULL && aux->parent->right == aux){
-      aux = aux->parent;
-    }
+  if(aux->right != NULL)//si tiene hijo derecho avanzo
+  {
     aux = aux->right;
-    while(aux->left != NULL){
+    while(aux->left != NULL)//ahora avanzo por los nodos izq para buscar el menor
+    {
       tree->current = aux;
       aux = aux->left;
     }
-  }else{
+  }else{ //sino tiene hijo derecho debe subir hasta encontrar otro
     TreeNode * padre = aux->parent;
-    while (padre != NULL && padre == tree->current->right) {
-            tree->current = padre;
-            padre = tree->current->parent;
+    while (padre != NULL && aux == padre->right) {
+            aux = padre;
+            padre = aux->parent;
         }
-        tree->current = padre; // Esto puede ser NULL si hemos llegado al final del TreeMap.
+        aux = padre; // Esto puede ser NULL si hemos llegado al final del TreeMap.
   }
-  
+  tree->current = aux;
+  if(tree->current == NULL) return NULL;
   return aux->pair;
 }
