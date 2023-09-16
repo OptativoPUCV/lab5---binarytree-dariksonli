@@ -174,21 +174,23 @@ Pair * upperBound(TreeMap * tree, void* key)
 {
   if(tree == NULL) return NULL;
   TreeNode * aux = tree->root;
+  Pair * mayor = NULL;
 
   while(aux != NULL)
     {
-      if(is_equal(tree, aux->pair->key, key) == 1){ //si es la clave retorno el par
+      //si es la clave retorno el par
+      if(is_equal(tree, aux->pair->key, key) == 1){ 
         return aux->pair;
       }
+      mayor = aux->pair;
       if(tree->lower_than(key, aux->pair->key) == 1){
         //va a la izq
-           
-            aux = aux->left;
-      }else {//va a la der
+        aux = aux->left;
+      }else{//va a la der
         aux = aux->right;
           }
     }
-  return NULL;
+  return mayor;
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
