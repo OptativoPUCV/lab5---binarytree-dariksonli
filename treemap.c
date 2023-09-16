@@ -173,22 +173,22 @@ Pair * searchTreeMap(TreeMap * tree, void* key)
 Pair * upperBound(TreeMap * tree, void* key)
 {
   if(tree == NULL) return NULL;
-  
-  tree->current = tree->root;
+  TreeNode * aux = tree->root;
 
-  while(tree->current != NULL)
+  while(aux != NULL)
     {
-      if(is_equal(tree, tree->current->pair->key, key) == 1){ //si es la clave retorno el par
-        return tree->current->pair;
+      if(is_equal(tree, aux->pair->key, key) == 1){ //si es la clave retorno el par
+        return aux->pair;
       }
       if(tree->lower_than(key, tree->current->pair->key) == 1){
         //va a la izq
-            tree->current = tree->current->left;
+           
+            aux = aux->left;
       }else {//va a la der
-        tree->current = tree->current->right;
+        aux = aux->right;
           }
     }
-  return tree->current->parent->pair;
+  return NULL;
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
