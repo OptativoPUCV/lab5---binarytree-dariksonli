@@ -180,7 +180,7 @@ Pair * upperBound(TreeMap * tree, void* key)
       if(is_equal(tree, aux->pair->key, key) == 1){ //si es la clave retorno el par
         return aux->pair;
       }
-      if(tree->lower_than(key, tree->current->pair->key) == 1){
+      if(tree->lower_than(key, aux->pair->key) == 1){
         //va a la izq
            
             aux = aux->left;
