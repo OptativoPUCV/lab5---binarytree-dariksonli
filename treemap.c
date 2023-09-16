@@ -205,12 +205,13 @@ Pair * nextTreeMap(TreeMap * tree) {
     aux = aux->parent;
   }
   
-  if(aux->right != NULL)
+  if(aux->right != NULL){
+    
     aux = aux->right;
-  while(aux->left != NULL){
-    aux = aux->left;
+    while(aux->left != NULL){
+      aux = aux->left;
+    }
   }
-  
   
   return aux->pair;
 }
