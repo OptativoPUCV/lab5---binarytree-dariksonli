@@ -363,3 +363,9 @@ Sat 16 Sep 2023 01:19:41 AM UTC:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 8b28b6c
+Sat 16 Sep 2023 01:20:35 AM UTC: 
+ treemap.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+ tests:  26|1
+total_score: 60/70
+5fc4431
