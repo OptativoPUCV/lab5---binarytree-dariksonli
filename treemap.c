@@ -70,6 +70,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
         if(nodoActual->left == NULL) {
           nodoActual->left = nodo;
           nodo->parent = nodoActual;
+          tree->current = nodo;
           return;
         }
         nodoActual = nodoActual->left;
@@ -78,6 +79,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
         if(nodoActual->right == NULL) {
           nodo->parent = nodoActual;
           nodoActual->right = nodo;
+          tree->current = nodo;
           return;
         }
         nodoActual = nodoActual->right;
