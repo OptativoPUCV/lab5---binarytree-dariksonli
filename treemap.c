@@ -182,11 +182,13 @@ Pair * upperBound(TreeMap * tree, void* key)
       if(is_equal(tree, aux->pair->key, key) == 1){ 
         return aux->pair;
       }
-      mayor = aux->pair;
+      
       if(tree->lower_than(key, aux->pair->key) == 1){
         //va a la izq
+        mayor = aux->pair;
         aux = aux->left;
       }else{//va a la der
+        
         aux = aux->right;
           }
     }
