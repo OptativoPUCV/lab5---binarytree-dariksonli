@@ -89,20 +89,6 @@ TreeNode * minimum(TreeNode * x)
     }
   return x;
 }
-/*struct TreeNode {
-    Pair* pair;
-    TreeNode * left;
-    TreeNode * right;
-    TreeNode * parent;
-};
-
-struct TreeMap {
-    TreeNode * root;
-    TreeNode * current;
-    int (*lower_than) (void* key1, void* key2);
-};
-
-*/
 
 void removeNode(TreeMap * tree, TreeNode* node)
 {
@@ -202,7 +188,9 @@ Pair * firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
-  if(tree== NULL || tree->root == NULL) return NULL;
+  if(tree== NULL || tree->root == NULL || tree->current == NULL) return NULL;
+
+  //TreeNode * aux = tree->current;
   Pair * parNext = tree->current->parent->pair;
   tree->current = tree->current->parent;
   return parNext;
