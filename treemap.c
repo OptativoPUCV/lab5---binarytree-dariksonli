@@ -206,7 +206,7 @@ Pair * nextTreeMap(TreeMap * tree) {
   }
   
   if(aux->right != NULL){
-    if(aux->parent != NULL && aux->parent == aux->right){
+    while(aux->parent != NULL && aux->parent->right == aux){
       aux = aux->parent;
     }
     aux = aux->right;
@@ -214,6 +214,5 @@ Pair * nextTreeMap(TreeMap * tree) {
       aux = aux->left;
     }
   }
-  
   return aux->pair;
 }
